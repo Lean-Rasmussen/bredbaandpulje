@@ -14,33 +14,44 @@ class App extends Component {
 
     //Tilmelding
     produkter: '',
-    
+    BredbaandsHastigheder: ['25/5','50/10','100/20','300/60','500/60','1000/100'],
+    TvPakker:['','Grunpakke', 'Grundpakke + 10 valgfri kanaler', 'Grundpakke + 20 valgfri kanaler',' Grundpakke + 36 valgfri kanaler'],
+    antal: [0,1,2,3,4],
+    MobilAbo :[
+    {name: '', Id: 'M1', pris: 0},
+    {name: 'Fritale 5gb', Id: 'M2', pris: 149},
+    {name: 'Fritale 10gb', Id: 'M3', pris: 199},
+    {name: 'Fritale 25gb', Id: 'M4', pris: 299},
+    ],
 
-      //person info
-    fornavn: '',
-    efternavn:'',
-    vejnavn:'',
-    husnummer:'',
-    etage:'',
-    side: '',
-    kontaktnummer:'',
-    Email:'',
+
+    TilmedingInfo: {
+    fornavnInput: '',
+    efternavnInput:'',
+    vejnavnInput:'',
+    husnummerInput:'',
+    etageInput:'',
+    sideInput: '',
+    kontaktnummerInput:'',
+    EmailInput:'',
     //produklt 
-    Bredbaands:'',
-    Tv:'',
-    TvIFlereRum:'',
-    Mobil:'',
-    extranummer:'',
+    BredbaandsInput:'',
+    TvInput:'',
+    TvIFlereRumInput:'',
+    MobilInput:'',
+    extranummerInput:'',
+  },
 
 
 
     //information for fase
     aktivFase:[],
     Faser:['indsamling', 'planlægning', 'gravning', 'installation', 'reetablering'],
-    fasebeskrivelser:['or at kunne bevise sansernes pålidelighed ud fra cogitioet mente',
+    faseBeskrivelser:['or at kunne bevise sansernes pålidelighed ud fra cogitioet mente',
                       'or at kunne bevise sansernes pålidelighed ud fra cogitioet mente',
                       'or at kunne bevise sansernes pålidelighed ud fra cogitioet mente', 
-                      'or at kunne bevise sansernes pålidelighed ud fra cogitioet mente']
+                      'or at kunne bevise sansernes pålidelighed ud fra cogitioet mente'],
+    faseTid:['dato og dato','dato og dato','dato og dato'],
   }
 }
 
@@ -88,8 +99,8 @@ class App extends Component {
         <div className ='Tilmelding'>
         <h1> {this.state.Navbar[1]}</h1>
           <h3> Adresse </h3>
-          <p>Vejnavn</p><input></input>
-          <p>Hus nummer</p><input></input>
+          <p>Vejnavn</p><select></select>
+          <p>Hus nummer</p><select></select>
           <p> Etage</p><input></input>
           <p>Side</p><input></input>
           <p>Fornavn</p><input></input>
@@ -99,31 +110,64 @@ class App extends Component {
 
 
           <h3> Jeg er interesset i følgende produkter</h3>
-          <p>Bredbaands hastighed</p><input></input>
-          <p>Tv kanaler</p><input></input>
-          <p>Antal tv</p><input></input>
-          <p>Mobil</p><input></input>
-          <p>Extranumre</p><input></input>
+          <p>Bredbaands hastighed</p><select>
+            {this.state.BredbaandsHastigheder.map(function(hastighed){
+              return <option>{hastighed}</option>
+            })}
+          </select>
+          <p>Synkron hastighed</p> <input type='checkbox'></input>
+          
+          <p>Tv kanaler</p><select>
+            {this.state.TvPakker.map(function(TvPakke){
+              return <option>{TvPakke}</option>
+            })}
+          </select>
+          
+          <p>Antal tv</p><select>
+            {this.state.antal.map(function(nummer){
+              return <option>{nummer}</option>
+            })}
+          </select>
+          
+          <p>Mobil</p><select>
+          {this.state.MobilAbo.map(function(abo){
+              return <option>{abo.name}</option>
+            })}
+            
+          </select>
+          <p>Info omkring dobelt data</p>
+          
+          <p>Extranumre</p><select>
+          {this.state.antal.map(function(nummer){
+              return <option>{nummer}</option>
+            })} 
+            
+          </select>
           <p></p><input></input>
           <h3> pris </h3>
           <p1> jeg er melder mig her med til / Yousee må gerne kontakte mig</p1>
-          <input></input>
+          <input type='checkbox'></input>
           <button> Send tilmelding </button>
         </div> 
 
         <div className= 'ProjektOversigt'>
-        <div>Representation af fase </div> 
         <h1>{this.state.Navbar[2]}</h1>
-        <h2>information omkring planlægning</h2>
-        <p>forventet periode mellem den </p>
+
+        <div>Representation af fase</div> 
+        <h3>information omkring </h3>
+        <p>{this.state.faseBeskrivelser[0]} </p>
+        <p>{this.state.faseTid[0]} </p>
+
 
         <div>Representation af fase </div> 
-        <h2>information omkring gravning</h2>
-        <p>forventet periode mellem den </p>
+        <h3>information omkring gravning</h3>
+        <p>{this.state.faseBeskrivelser[1]} </p>
+        <p>{this.state.faseTid[1]} </p>
 
         <div>Representation af fase </div> 
-        <h2>information omkring planlægning</h2>
-        <p>forventet periode mellem den </p>
+        <h3>information omkring planlægning</h3>
+        <p>{this.state.faseBeskrivelser[2]} </p>
+        <p>{this.state.faseTid[2]} </p>
         </div>       
      
       </div>
