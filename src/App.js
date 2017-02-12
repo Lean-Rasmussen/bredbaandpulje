@@ -61,7 +61,7 @@ class App extends Component {
                       'or at kunne bevise sansernes pålidelighed ud fra cogitioet mente',
                       'or at kunne bevise sansernes pålidelighed ud fra cogitioet mente', 
                       'or at kunne bevise sansernes pålidelighed ud fra cogitioet mente'],
-    faseTid:['dato og dato','dato og dato','dato og dato'],
+    faseTid:[' fra dato til dato',' fra dato til dato','fra dato til dato'],
   }
 }
 
@@ -107,25 +107,42 @@ class App extends Component {
 
 
         <div className ='Tilmelding'>
-        <h1> {this.state.Navbar[1]}</h1>
-          <h3> Adresse </h3>
-          <p>Vejnavn</p><select>
-            {this.state.adresser.vejnavne.map(function(vej){
-              return <option>{vej}</option>
-            })}
-          </select>
-          <p>Hus nummer</p><select>
-            {this.state.adresser.vejnavne.map(function(nummer){
-              return <option>{nummer}</option>
-            })}
-          </select>
-          <p> Etage</p><input></input>
-          <p>Side</p><input></input>
-          <p>Fornavn</p><input></input>
-          <p>Efternavn</p><input></input>
-          <p>Kontakt nummer</p><input></input>
-          <p>Email</p><input></input>
-
+          <h1> {this.state.Navbar[1]}</h1>
+           <h3> Adresse </h3>
+          <form className= 'personInfo'>
+          <div className='personItem'>
+            <p>Vejnavn</p><select>
+                {this.state.adresser.vejnavne.map(function(vej){
+                  return <option>{vej}</option>
+                })}
+              </select>
+              </div>
+              <div className='personItem'>
+              <p>Hus nummer</p><select>
+                {this.state.adresser.vejnavne.map(function(nummer){
+                  return <option>{nummer}</option>
+                })}
+              </select>
+              </div>
+            <div className='personItem'>
+            <p> Etage</p><input></input>
+            </div>
+            <div className='personItem'>
+            <p>Side</p><input></input>
+            </div>
+            <div className='personItem'>
+            <p>Fornavn</p><input></input>
+            </div>
+            <div className='personItem'>
+            <p>Efternavn</p><input></input>
+            </div>
+            <div className='personItem'>
+            <p>Kontakt nummer</p><input></input>
+            </div>
+            <div className='personItem'>
+            <p>Email</p><input></input>
+            </div>
+          </form>
 
           <h3> Jeg er interesset i følgende produkter</h3>
           <p>Bredbaands hastighed</p><select>
