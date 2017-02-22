@@ -8,14 +8,17 @@ import App from './App';
 import Information from './components/information'
 import Tilmelding from './components/tilmelding'
 import Progress from './components/progress'
-
+//data
+import planInfo from './data/adresser#317'
+import information from './data/information'
+import produkter from './data/produkter'
 
 ReactDOM.render((
 	<Router history={hashHistory}>
-		<Route path="/" component={App}> 
-			<Route path="/information" component={Information} /> 
-			<Route path="/tilmelding" component={Tilmelding} /> 
-			<Route path="/progress" component={Progress} /> 
+		<Route component={App}> 
+			<Route path="/" component={Information} information={information} /> 
+			<Route path="/tilmelding" component={Tilmelding} planInfo={planInfo} faseBeskrivelse={information}/> 
+			<Route path="/progress" component={Progress} faseBeskrivelse={information} planInfo={planInfo} /> 
 		</Route>
 	</Router>
 ),document.getElementById('root')

@@ -4,19 +4,19 @@ class Tilmelding extends Component {
   render(){
     return(
     <div> 
-     <h1> {this.props.Navbar[1]}</h1>
+     <h1> Tildmelding</h1>
              <h3> Adresse </h3>
-            <form className= 'personInfo'>
+            <form className='personInfo'>
             <div className='personItem'>
               <p>Vejnavn</p><select>
-                  {this.props.adresser.vejnavne.map(function(vej){
+                  {this.props.route.planInfo.vejnavne.map(function(vej){
                     return <option>{vej}</option>
                   })}
                 </select>
                 </div>
                 <div className='personItem'>
                 <p>Hus nummer</p><select>
-                  {this.props.adresser.vejnavne.map(function(nummer){
+                  {this.props.route.planInfo.vejnavne.map(function(nummer){
                     return <option>{nummer}</option>
                   })}
                 </select>
