@@ -40,6 +40,42 @@ class Tilmelding extends Component {
               <p>Email</p><input></input>
               </div>
             </form>
+      <h2> Valg af produkter</h2>
+        <label>Vælg TV pakke</label>
+        <select id="pakkevalg" onChange={this.getImage}>
+          {this.props.route.produkter.TvPakker.map(function(pakke, id,){
+            return <option  key={pakke.Id} selected>{pakke.pakke}</option>
+          })}
+        </select>
+      
+        <label>Multiroom antal extra TV</label>
+        <select id="multiroom" onChange={this.getImage}>
+          {this.props.route.produkter.antal.map(function(antal, id){
+            return <option  key={id} selected>{antal}</option>
+        })}
+        </select>
+      
+        <label>Vælg Bredbåndshastighed</label>
+        <select id="BBhastighed" onChange={this.getImage}>
+          {this.props.route.produkter.BredbaandsHastigheder.map(function(pakke, id,){
+            return <option  key={pakke.Id} selected>{pakke.speed}</option>
+          })}
+        </select>
+      
+      <label>Vælg Mobil abonnoment</label>
+      <select id="MobilAbo" onChange={this.getImage}>
+        {this.props.route.produkter.MobilAbo.map(function(abo){
+            return <option  selected>{abo.name}</option>
+        })}
+      </select>
+      
+      <label>Antal extranumre</label>
+      <select id="ExtraNumre" onChange={this.getImage}>
+        {this.props.route.produkter.antal.map(function(antal, id){
+            return <option  key={id} selected>{antal}</option>
+        })}
+      </select>
+      <button>Tilmeld</button>
     </div>        
   );
   }

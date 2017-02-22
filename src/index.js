@@ -17,8 +17,8 @@ ReactDOM.render((
 	<Router history={hashHistory}>
 		<Route component={App}> 
 			<Route path="/" component={Information} information={information} /> 
-			<Route path="/tilmelding" component={Tilmelding} planInfo={planInfo} faseBeskrivelse={information}/> 
-			<Route path="/progress" component={Progress} faseBeskrivelse={information} planInfo={planInfo} /> 
+			<Route path="/tilmelding" component={Tilmelding} planInfo={planInfo} faseBeskrivelse={information} produkter={produkter}/> 
+			<Route path="/progress" component={Progress} faseBeskrivelse={information} planInfo={planInfo}/> 
 		</Route>
 	</Router>
 ),document.getElementById('root')
